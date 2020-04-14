@@ -1,0 +1,17 @@
+.app {
+  height: 100%;
+  width: 100%;
+}
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  border-bottom: 1px solid var(--green);
+}
+.menu {
+
+}
+.content {
+  display: inline-block;
+  padding: 20px;
+}
