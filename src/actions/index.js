@@ -29,10 +29,10 @@ const fetchGetCar = (page = 0, perPage = 5) => async (dispatch) => {
 			},
 		);
 		const totalCount = Number(response.headers['x-total-count']);
-		const id = [];
+		const id = new Set();
 		const dataCar = response.data.map((item) => {
 			if (item.dealer !== null) {
-				id.push(item.dealer);
+				id.add(item.dealer);
 			}
 			return {
 				id: item.id,
