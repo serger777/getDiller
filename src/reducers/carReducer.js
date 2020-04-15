@@ -1,5 +1,5 @@
 import {
-	GET_CAR, LOAD_CAR, TOTAL_COUNT, LOADING_TABLE,
+	GET_CAR, LOAD_CAR, TOTAL_COUNT, LOADING_TABLE, SET_DILERS, GET_DILERS_ID,
 } from './types';
 
 const initialState = {
@@ -13,6 +13,8 @@ const initialState = {
 		dielersName: "",
 		address: "",
 	},
+	dilers: [],
+	dillersID: [],
 	loadCar: true,
 	loading: true,
 	totalCount: "",
@@ -41,6 +43,22 @@ const carReducer = (state = initialState, action) => {
 		return {
 			...state,
 			totalCount: action.payload,
+		};
+	case SET_DILERS:
+		return {
+			...state,
+			dilers: [
+				...state.dilers,
+				...action.payload,
+			],
+		};
+		case GET_DILERS_ID:
+		return {
+			...state,
+			dillersID: [
+				...state.dillersID,
+				...action.payload,
+			],
 		};
 	default:
 		return state;

@@ -7,13 +7,12 @@ import { fetchGetCar } from "../../actions";
 
 const CarTable = () => {
 	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchGetCar());
-	}, []);
 	const {
-		car, loadCar, page, totalCount, loading,
+		car, loadCar, page, perPage, totalCount, loading, dillersID, dilers,
 	} = useSelector((state) => state.car);
-
+	useEffect(() => {
+		dispatch(fetchGetCar(page, perPage, dillersID, dilers));
+	}, []);
 	const columns = [
 		{
 			title: 'id',
@@ -53,8 +52,8 @@ const CarTable = () => {
 			key: 'id',
 		},
 	];
-	const goToPage = (pages, perPage) => {
-		dispatch(fetchGetCar(pages, perPage));
+	const goToPage = (pages, perPage, ) => {
+		dispatch(fetchGetCar(pages, perPage, dillersID, dilers));
 	};
 
 	const pagination = {
