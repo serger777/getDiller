@@ -64,7 +64,6 @@ const fetchGetCar = (page = 0, perPage = 5, dillersID, dilers) => async (dispatc
 		const searchDilersName = (dilersArray) => {
 			dataCar.forEach((item) => {
 				const findName = dilersArray.filter((dealer) => dealer.id === item.dilers);
-				console.log(findName);
 				if (findName.length === 0) {
 					item.dielersName = 'отсутствует';
 					item.address = item;
